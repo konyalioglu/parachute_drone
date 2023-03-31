@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNameSpace>/parachute_drone</robotNameSpace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="pd_joint_control" filename="libpd_joint_plugin.so">
+      <motor1>motor1</motor1>
+      <motor2>motor2</motor2>
+    </plugin>  
+  </gazebo> 
+  
+    <gazebo>
+    <plugin name="pd_forces_and_moments" filename="libpd_forces_and_moments.so">
+      <mass>2.5</mass>
+      <link_name>parachute_drone</link_name>
+      <ct>0.002</ct>
+      <ch>0.0001</ch>
+      <r_motor1_y>-0.2</r_motor1_y>
+      <r_motor2_y>0.2</r_motor2_y>
+      <Cd>1.0</Cd>
+      <S>1.0</S>
+      <rho>1.0</rho>
+      <cog_x>0.0</cog_x>
+      <cog_y>0.0</cog_y>
+      <cog_z>0.0</cog_z>
+      <cop_x>0.0</cop_x>
+      <cop_y>0.0</cop_y>
+      <cop_z>-1.0</cop_z>
+      <dref>1.0</dref>
+      <Cdd>-1.0</Cdd>
+      <gravity>9.8065</gravity>
+    </plugin>  
+  </gazebo> 
+
+</robot>

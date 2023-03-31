@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+
+  name="parachute_drone" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <xacro:include filename="$(find parachute_drone)/urdf/parachute_drone.gazebo"/>
+
+  <link
+    name="parachute_drone">
+    <inertial>
+      <origin
+        xyz="-0.0 -0.0 0.0"
+        rpy="0 0 0" />
+      <mass
+        value="2.5" />
+      <inertia
+        ixx="0.6"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.6"
+        iyz="0.0"
+        izz="0.3" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://parachute_drone/meshes/parachute_drone.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://parachute_drone/meshes/parachute_drone.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="prop2">
+    <inertial>
+      <origin
+        xyz="0 0 0.0"
+        rpy="0 0 0" />
+      <mass
+        value="0.0036842" />
+      <inertia
+        ixx="0.001"
+        ixy="0"
+        ixz="0"
+        iyy="0.001"
+        iyz="0"
+        izz="0.001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://parachute_drone/meshes/prop2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.54902 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://parachute_drone/meshes/prop2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="motor2"
+    type="continuous">
+    <origin
+      xyz="-0.03343 0.288 0.1038"
+      rpy="-1.5708 -1.1823 -1.5708" />
+    <parent
+      link="parachute_drone" />
+    <child
+      link="prop2" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics
+      damping="0.0"
+      friction="0.0" />
+  </joint>
+  <link
+    name="prop1">
+    <inertial>
+      <origin
+        xyz="0 0 0.0"
+        rpy="0 0 0" />
+      <mass
+        value="0.0036837" />
+      <inertia
+        ixx="0.001"
+        ixy="0"
+        ixz="0"
+        iyy="0.001"
+        iyz="0"
+        izz="0.001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://parachute_drone/meshes/prop1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.54902 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://parachute_drone/meshes/prop1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="motor1"
+    type="continuous">
+    <origin
+      xyz="-0.03343 -0.28975 0.087994"
+      rpy="1.5708 -1.3801 1.5708" />
+    <parent
+      link="parachute_drone" />
+    <child
+      link="prop1" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics
+      damping="0.0"
+      friction="0.0" />
+  </joint>
+</robot>
